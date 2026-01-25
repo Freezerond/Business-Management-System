@@ -1,8 +1,8 @@
 import pytest
 
-from src.services.user_service import UserService
-from src.schemas.users import UserCreateSchema, UserUpdateSchema
-from src.services.exceptions import ConflictError, NotFoundError
+from backend.services.user_service import UserService
+from backend.schemas.users import UserCreateSchema, UserUpdateSchema
+from backend.services.exceptions import ConflictError, NotFoundError
 
 
 @pytest.mark.asyncio

@@ -1,7 +1,7 @@
 import pytest
 import datetime
 
-from src.services.jwt_manager import create_access_token
+from backend.services.jwt_manager import create_access_token
 
 
 # -------------------- CREATE MEETING --------------------

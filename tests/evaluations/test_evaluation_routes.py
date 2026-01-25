@@ -1,6 +1,6 @@
 import pytest
 
-from src.schemas.evaluations import EvaluationCreateSchema, EvaluationUpdateSchema
+from backend.schemas.evaluations import EvaluationCreateSchema, EvaluationUpdateSchema
 
 
 # -------------------- CREATE EVALUATION --------------------

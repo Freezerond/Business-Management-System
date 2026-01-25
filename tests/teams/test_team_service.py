@@ -1,8 +1,8 @@
 import pytest
-from src.services.team_service import TeamService
-from src.models.users import UserRole
-from src.services.exceptions import ConflictError, ForbiddenError
-from src.models.teams import Team
+from backend.services.team_service import TeamService
+from backend.models.users import UserRole
+from backend.services.exceptions import ConflictError, ForbiddenError
+from backend.models.teams import Team
 
 
 # -------------------- CREATE TEAM --------------------

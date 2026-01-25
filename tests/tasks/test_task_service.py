@@ -1,11 +1,11 @@
 import pytest
 
-from src.models.tasks import Task, TaskStatus
-from src.models.users import UserRole
-from src.schemas.tasks import TaskCreateSchema, TaskUpdateSchema
-from src.services.task_service import TaskService
-from src.services.exceptions import ForbiddenError, ConflictError
-from src.services.team_service import TeamService
+from backend.models.tasks import Task, TaskStatus
+from backend.models.users import UserRole
+from backend.schemas.tasks import TaskCreateSchema, TaskUpdateSchema
+from backend.services.task_service import TaskService
+from backend.services.exceptions import ForbiddenError, ConflictError
+from backend.services.team_service import TeamService
 
 
 # ---------- CREATE TASK ----------

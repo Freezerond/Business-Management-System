@@ -1,6 +1,6 @@
 import pytest
 
-from src.schemas.tasks import TaskStatus
+from backend.schemas.tasks import TaskStatus
 
 
 # ---------- CREATE TASK ----------

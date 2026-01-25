@@ -1,9 +1,9 @@
 import pytest
 import datetime
-from src.models.meetings import Meeting
-from src.schemas.meetings import MeetingCreateSchema
-from src.services.meeting_service import MeetingService
-from src.services.exceptions import ConflictError, ForbiddenError, NotFoundError
+from backend.models.meetings import Meeting
+from backend.schemas.meetings import MeetingCreateSchema
+from backend.services.meeting_service import MeetingService
+from backend.services.exceptions import ConflictError, ForbiddenError, NotFoundError
 
 
 # -------------------- CREATE MEETING --------------------

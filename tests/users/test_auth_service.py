@@ -1,8 +1,8 @@
 import pytest
 
-from src.services.auth_service import AuthService
-from src.schemas.auth import LoginInput
-from src.services.exceptions import UnauthorizedError
+from backend.services.auth_service import AuthService
+from backend.schemas.auth import LoginInput
+from backend.services.exceptions import UnauthorizedError
 
 
 @pytest.mark.asyncio

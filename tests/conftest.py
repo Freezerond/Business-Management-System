@@ -6,21 +6,21 @@ import asyncio
 from httpx import AsyncClient, ASGITransport
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 
-from src.config import settings
-from src.database import Base, get_session
-from src.main import app
-from src.models.meetings import Meeting
-from src.models.tasks import TaskStatus
-from src.models.users import User, UserRole
-from src.schemas.evaluations import EvaluationCreateSchema
-from src.schemas.meetings import MeetingCreateSchema
-from src.schemas.tasks import TaskCreateSchema
-from src.services.evaluation_service import EvaluationService
-from src.services.jwt_manager import create_access_token
-from src.services.meeting_service import MeetingService
-from src.services.security import hash_password
-from src.services.task_service import TaskService
-from src.services.team_service import TeamService
+from backend.config import settings
+from backend.database import Base, get_session
+from backend.main import app
+from backend.models.meetings import Meeting
+from backend.models.tasks import TaskStatus
+from backend.models.users import User, UserRole
+from backend.schemas.evaluations import EvaluationCreateSchema
+from backend.schemas.meetings import MeetingCreateSchema
+from backend.schemas.tasks import TaskCreateSchema
+from backend.services.evaluation_service import EvaluationService
+from backend.services.jwt_manager import create_access_token
+from backend.services.meeting_service import MeetingService
+from backend.services.security import hash_password
+from backend.services.task_service import TaskService
+from backend.services.team_service import TeamService
 
 
 @pytest.fixture(scope="session", autouse=True)
@@ -173,7 +173,7 @@ async def done_task(session, task_with_executor):
     return task_with_executor
 
 
-# -------------------- TASKS --------------------
+# -------------------- EVALUATIONS --------------------
 
 
 @pytest_asyncio.fixture

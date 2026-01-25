@@ -1,8 +1,9 @@
 services:
   backend:
-    build: .
+    build:
+      dockerfile: Dockerfile
     container_name: bms_backend
-    command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+    command: uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
     volumes:
       - .:/app
     env_file:
@@ -11,6 +12,16 @@ services:
       - "8000:8000"
     depends_on:
       - db
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: bms_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
 
   db:
     image: postgres:16
@@ -23,7 +34,6 @@ services:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-
 
 volumes:
   postgres_data:

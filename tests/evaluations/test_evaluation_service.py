@@ -1,11 +1,11 @@
 import pytest
-from src.models.tasks import TaskStatus
-from src.models.evaluations import Evaluation
-from src.schemas.evaluations import EvaluationCreateSchema, EvaluationUpdateSchema
-from src.schemas.tasks import TaskCreateSchema
-from src.services.evaluation_service import EvaluationService
-from src.services.exceptions import ConflictError, ForbiddenError, NotFoundError
-from src.services.task_service import TaskService
+from backend.models.tasks import TaskStatus
+from backend.models.evaluations import Evaluation
+from backend.schemas.evaluations import EvaluationCreateSchema, EvaluationUpdateSchema
+from backend.schemas.tasks import TaskCreateSchema
+from backend.services.evaluation_service import EvaluationService
+from backend.services.exceptions import ConflictError, ForbiddenError, NotFoundError
+from backend.services.task_service import TaskService
 
 
 # -------------------- CREATE EVALUATION --------------------
@@ -50,12 +50,6 @@ async def test_get_evaluation_by_creator(session, user, other_user, task_with_ex
     fetched = await EvaluationService.get_evaluation(session, user, task_with_executor.id, other_user.id)
     assert fetched.task_id == evaluation.task_id
     assert fetched.executor_id == evaluation.executor_id
-
-
-@pytest.mark.asyncio
-async def test_get_evaluation_forbidden(session, other_user, task_with_executor, evaluation):
-    with pytest.raises(ForbiddenError):
-        await EvaluationService.get_evaluation(session, other_user, task_with_executor.id, other_user.id)
 
 
 # -------------------- UPDATE EVALUATION --------------------

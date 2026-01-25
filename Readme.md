@@ -64,7 +64,7 @@
 
 ### API
 - REST API
-- Автоматическая OpenAPI документация ([http://localhost:8000/docs](http://localhost:8000/docs) при локальном запуске сервера).
+- Автоматическая OpenAPI документация
 - Асинхронная работа с базой данных
 
 ---
@@ -150,18 +150,6 @@ venv\Scripts\activate     # Windows
 Установить зависимости:
 ```bash
 pip install -r requirements.txt
-```
-
-Cоздать таблицы в базе данных.
-
-```bash
-alembic upgrade head
-```
-
-Для доступа в панель администратора необходимо создать superadmin.
-
-```bash
-python -m src.admin.create_superadmin
 ```
 
 Запустить приложение:

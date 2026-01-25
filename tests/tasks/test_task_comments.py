@@ -1,9 +1,9 @@
 import pytest
 
-from src.services.task_service import TaskService
-from src.services.exceptions import ForbiddenError, ConflictError, NotFoundError
-from src.models.tasks import TaskComment
-from src.services.utils import get_object_or_404
+from backend.services.task_service import TaskService
+from backend.services.exceptions import ForbiddenError, ConflictError, NotFoundError
+from backend.models.tasks import TaskComment
+from backend.services.utils import get_object_or_404
 
 
 @pytest.mark.asyncio
