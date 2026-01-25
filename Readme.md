@@ -71,6 +71,7 @@
 
 ## 🧱 Технологический стек
 
+Backend:
 - **Python 3.13**
 - **FastAPI**
 - **PostgreSQL**
@@ -80,6 +81,15 @@
 - **SQLAdmin**
 - **JWT (python-jose)**
 - **Argon2** (хеширование паролей)
+
+Frontend:
+- **Node.js + npm**
+- **React 19**
+- **TypeScript**
+- **Vite**
+- **MUI**
+- **Zustand**
+- **React Router DOM**
 
 ---
 
@@ -105,6 +115,15 @@ DB_PORT=5432
 JWT_SECRET_KEY=c350ea966f6e3b3608458e1a4d20d796
 
 MODE=PROD
+```
+
+Установите зависимости frontend:
+
+```bash
+cd frontend
+npm install
+npm run build
+cd ..
 ```
 
 ### 🐳 Через Docker (рекомендованный способ)
@@ -152,10 +171,17 @@ venv\Scripts\activate     # Windows
 pip install -r requirements.txt
 ```
 
-Запустить приложение:
+Запустить backend-приложение:
 
 ```bash
 uvicorn src.main:app --reload
+```
+
+Запустить frontend-приложение:
+
+```bash
+cd frontend
+npm run dev
 ```
 
 ## 📂 Структура проекта
@@ -230,6 +256,10 @@ Business_Management_System/
 │   ├── config.py
 │   ├── database.py
 │   └── main.py
+│
+├── frontend/
+│   ├── package.json
+│   └── ...
 │
 ├── tests/ 
 │   ├── evaluations/
