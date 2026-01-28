@@ -35,8 +35,8 @@ class Task(Base):
         back_populates="my_tasks",
         secondary="task_executors"
     )
-    evaluations: Mapped[list["Evaluation"]] = relationship(back_populates="task")
-    comments: Mapped[list["TaskComment"]] = relationship(back_populates="task")
+    evaluations: Mapped[list["Evaluation"]] = relationship(back_populates="task", cascade="all, delete-orphan")
+    comments: Mapped[list["TaskComment"]] = relationship(back_populates="task", cascade="all, delete-orphan")
 
     def __str__(self):
         return self.title

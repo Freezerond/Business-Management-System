@@ -13,9 +13,9 @@ class Team(Base):
     name: Mapped[str_64]
     created_at: Mapped[created_at]
 
-    users: Mapped[list["User"]] = relationship(back_populates="team", passive_deletes=True)
-    tasks: Mapped[list["Task"]] = relationship(back_populates="team")
-    meetings: Mapped[list["Meeting"]] = relationship(back_populates="team")
+    users: Mapped[list["User"]] = relationship(back_populates="team")
+    tasks: Mapped[list["Task"]] = relationship(back_populates="team", cascade="all, delete-orphan")
+    meetings: Mapped[list["Meeting"]] = relationship(back_populates="team", cascade="all, delete-orphan")
 
     def __str__(self):
         return self.name

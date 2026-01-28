@@ -39,7 +39,7 @@ async def create_superadmin():
 
         try:
             await safe_commit(session)
-            print(f"Superadmin {full_name} успешно создан!")
+            print(f"admin {full_name} успешно создан!")
         except Exception as e:
             print(f"Ошибка при создании superadmin: {e}")
 

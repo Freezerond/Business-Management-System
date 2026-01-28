@@ -115,5 +115,6 @@ class TeamService:
                 user.role = UserRole.employee
             user.team_id = None
 
+        await session.flush()
         await session.delete(team)
         await safe_commit(session)
