@@ -169,7 +169,7 @@ pip install -r backend.requirements.txt
 Запустить backend-приложение:
 
 ```bash
-uvicorn src.main:app --reload
+uvicorn backend.main:app --reload
 ```
 
 Запустить frontend-приложение:
