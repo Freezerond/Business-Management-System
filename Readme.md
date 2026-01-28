@@ -93,7 +93,7 @@ Frontend:
 Клонируйте репозиторий и создайте файл окружения:
 
 ```bash
-git clone <[URL_репозитория](https://github.com/Freezerond/Business-Management-System)>
+git clone https://github.com/Freezerond/Business-Management-System
 cd Business_Management_System
 cp .env .env
 ```
