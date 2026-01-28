@@ -18,6 +18,11 @@ export default function CreateTaskPage() {
   const [executorIds, setExecutorIds] = useState<number[]>([]);
   const [teamMembers, setTeamMembers] = useState<UserPublic[]>([]);
   const [loading, setLoading] = useState(false);
+  const roleMap: Record<string, string> = {
+  admin: "Админ",
+  manager: "Менеджер",
+  employee: "Сотрудник",
+};
 
   const isAdmin = user?.role === "admin";
   const isManager = user?.role === "manager";
@@ -129,7 +134,7 @@ export default function CreateTaskPage() {
                       onChange={() => toggleExecutor(m.id)}
                     />
                   }
-                  label={`${m.full_name ?? m.email} (${m.role})`}
+                  label={`${m.full_name ?? m.email} (${roleMap[m.role] ?? m.role})`}
                 />
               ))}
             </FormGroup>

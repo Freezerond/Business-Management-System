@@ -8,11 +8,9 @@ from backend.database import Base, str_64, str_256, intpk, created_at, updated_a
 
 
 class UserRole(str, enum.Enum):
-    user = "user"
     employee = "employee"
     manager = "manager"
     admin = "admin"
-    superadmin = "superadmin"
 
 
 class User(Base):
@@ -23,7 +21,7 @@ class User(Base):
     full_name: Mapped[str_256]
     password: Mapped[str_256]
     role: Mapped[UserRole] = mapped_column(
-        Enum(UserRole, native_enum=True), default=UserRole.user
+        Enum(UserRole, native_enum=True), default=UserRole.employee
     )
     created_at: Mapped[created_at]
     updated_at: Mapped[updated_at]

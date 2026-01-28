@@ -46,7 +46,7 @@ class UserAdmin(ModelView, model=User):
     column_filters = [
         StaticValuesFilter(
             User.role,
-            values=[("admin", "Admin"), ("user", "User"), ("manager", "Manager")],
+            values=[("admin", "Admin"), ("employee", "Employee"), ("manager", "Manager")],
         ),
         ForeignKeyFilter(
             User.team_id,

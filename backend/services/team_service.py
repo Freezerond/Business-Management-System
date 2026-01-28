@@ -27,13 +27,14 @@ class TeamService:
     async def create_team(session: AsyncSession, user: User, name: str) -> Team:
         if user.team_id is not None:
             raise ConflictError("Вы уже состоите в команде")
+        if user.role != UserRole.admin:
+            raise ForbiddenError("Вы не можете создать команду")
 
         team = Team(name=name)
         session.add(team)
         await session.flush()
 
         user.team_id = team.id
-        user.role = UserRole.admin
 
         await safe_commit(session)
         await session.refresh(team)
@@ -65,7 +66,6 @@ class TeamService:
             raise ConflictError("Пользователь уже состоит в команде")
 
         user.team_id = team_id
-        user.role = UserRole.employee
 
         await safe_commit(session)
 
@@ -99,7 +99,8 @@ class TeamService:
         TeamService.ensure_member(user, team_id)
 
         user.team_id = None
-        user.role = UserRole.user
+        if user.role != UserRole.employee:
+            user.role = UserRole.employee
         await safe_commit(session)
 
     @staticmethod
@@ -110,7 +111,8 @@ class TeamService:
 
         await session.refresh(team, ["users"])
         for user in team.users:
-            user.role = UserRole.user
+            if user.role not in [UserRole.admin, UserRole.employee]:
+                user.role = UserRole.employee
             user.team_id = None
 
         await session.delete(team)

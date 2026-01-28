@@ -63,7 +63,7 @@ class TaskService:
             raise ConflictError("Вы не состоите в команде")
         if user.role not in (UserRole.admin, UserRole.manager):
             raise ForbiddenError("Вы не можете создать задачу")
-        if data.deadline < datetime.utcnow().date():
+        if data.deadline and data.deadline < datetime.utcnow().date():
             raise ConflictError("Дедлайн не может быть в прошлом")
 
         task = Task(

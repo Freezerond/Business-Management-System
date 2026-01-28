@@ -21,7 +21,7 @@ class AdminAuth(AuthenticationBackend):
                 return False
             if not verify_password(password, user.password):
                 return False
-            if user.role != UserRole.superadmin:
+            if user.role != UserRole.admin:
                 return False
 
         request.session["user_id"] = str(user.id)
@@ -33,7 +33,7 @@ class AdminAuth(AuthenticationBackend):
         user_id = request.session.get("user_id")
         role = request.session.get("user_role")
 
-        if not user_id or role != UserRole.superadmin.value:
+        if not user_id or role != UserRole.admin.value:
             return False
 
         async with async_session() as session:

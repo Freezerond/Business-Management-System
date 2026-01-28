@@ -45,7 +45,7 @@ class UserService:
         result = await session.execute(
             select(User).where(
                 User.team_id == None,
-                User.role != UserRole.superadmin
+                User.role != UserRole.admin
             )
         )
         return result.scalars().all()

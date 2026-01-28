@@ -2,7 +2,7 @@
 Скрипт для создания суперадминистратора.
 Запускается вручную из терминала.
 Пример запуска:
-    python -m create_superadmin
+    python -m create_admin
 """
 
 
@@ -33,7 +33,7 @@ async def create_superadmin():
             email=email,
             full_name=full_name,
             password=hash_password(password),
-            role=UserRole.superadmin
+            role=UserRole.admin
         )
         session.add(user)
 

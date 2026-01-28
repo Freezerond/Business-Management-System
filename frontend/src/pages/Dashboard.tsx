@@ -33,11 +33,13 @@ export default function Dashboard() {
                 Профиль
               </Button>
 
-              {user?.team_id ? (
+              {hasTeam && (
                 <Button component={RouterLink} to={`/team/${user.team_id}`} variant="contained" color="primary">
                   Моя команда
                 </Button>
-              ) : (
+              )}
+
+              {user?.role === "admin" && !hasTeam && (
                 <Button component={RouterLink} to="/create-team" variant="contained" color="primary">
                   Создать команду
                 </Button>
