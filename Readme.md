@@ -17,17 +17,12 @@
 - Привязка к команде по коду (опционально)  
 - Роли:
 
-**user** (обычный пользователь) — может создать команду и стать admin; 
-может стать частью команды в роли employee (сотрудник)
-
 **employee** (член команды) — может выполнять задачи, просматривать встречи
 
-**manager** (менеджер команды) — может назначать встречи и задачи сотрудникам; 
+**manager** (менеджер команды) — может назначать встречи и задачи сотрудникам,
 оценивает выполненные задачи
 
-**admin** (администратор команды) — управляет командой и ролями
-
-**superadmin** — имеет доступ к панели sqladmin, управление всеми данными
+**admin** (администратор команды) — управляет командой и ролями, имеет доступ к панели sqladmin, управление всеми данными
 
 ### Команды (Компании)
 - Администратор создаёт команду  
@@ -98,7 +93,7 @@ Frontend:
 Клонируйте репозиторий и создайте файл окружения:
 
 ```bash
-git clone <URL_репозитория>
+git clone <[URL_репозитория](https://github.com/Freezerond/Business-Management-System)>
 cd Business_Management_System
 cp .env .env
 ```
@@ -145,9 +140,9 @@ docker compose run --rm backend alembic upgrade head
 Для доступа в панель администратора необходимо создать superadmin.
 
 ```bash
-docker compose exec backend python -m src.admin.create_superadmin
+docker compose exec backend python -m backend.admin.create_admin
 или
-docker compose run --rm backend python -m src.admin.create_superadmin
+docker compose run --rm backend python -m backend.admin.create_admin
 ```
 
 При последующих запусках использовать:
@@ -168,7 +163,7 @@ venv\Scripts\activate     # Windows
 
 Установить зависимости:
 ```bash
-pip install -r requirements.txt
+pip install -r backend.requirements.txt
 ```
 
 Запустить backend-приложение:
@@ -188,7 +183,7 @@ npm run dev
 
 ```
 Business_Management_System/
-├── src/
+├── backend/
 │   ├── admin/
 │   │   ├── views/
 │   │   │   ├── evaluations.py
